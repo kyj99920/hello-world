@@ -78,8 +78,9 @@ for step in range(300):
      #reduce_mean은 평균을 만들어주는 부분 
      #multiply는 단순히 곱해주는 것
     descent = W - tf.multiply(alpha, gradient)
+     #multiply는 단순히 곱해주는 것
     W.assign(descent)
-    W 업데이트. tf.assign(W, descent). 호출할 때마다 변경된 W의 값이 반영되기 때문에 업데이트된다.
+    #W 업데이트. tf.assign(W, descent). 호출할 때마다 변경된 W의 값이 반영되기 때문에 업데이트된다.
     
     if step % 10 == 0:
         print('{:5} | {:10.4f} | {:10.6f}'.format(
