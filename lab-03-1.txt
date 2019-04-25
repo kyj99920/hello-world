@@ -27,9 +27,12 @@ Y = np.array([1, 2, 3])
 def cost_func(W, X, Y):
 #cost 함수 정의
   hypothesis = X * W
+  #hypothesis 정의
   return tf.reduce_mean(tf.square(hypothesis - Y))
 
 W_values = np.linspace(-3, 5, num=15)
+#linspace()는 시작점과 끝점을 균일 간격으로 나눈 점들을 생성해줌
+
 cost_values = []
 
 for feed_W in W_values:
@@ -61,6 +64,7 @@ for step in range(300):
     cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
     alpha = 0.01
+    
     gradient = tf.reduce_mean(tf.multiply(tf.multiply(W, X) - Y, X))
     descent = W - tf.multiply(alpha, gradient)
     W.assign(descent)
