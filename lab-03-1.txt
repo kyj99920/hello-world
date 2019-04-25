@@ -38,17 +38,20 @@ cost_values = []
 
 for feed_W in W_values:
     curr_cost = cost_func(feed_W, X, Y)
+    #curr_cost 정의
     cost_values.append(curr_cost)
     print("{:6.3f} | {:10.5f}".format(feed_W, curr_cost))
 
 import matplotlib.pyplot as plt
 # 패키지 Import
 plt.rcParams["figure.figsize"] = (8,6)
+#폰트 상세 설정
 
 import matplotlib.pyplot as plt
 # 패키지 Import
 
 plt.plot(W_values, cost_values, "b")
+#그래프 만들기
 plt.ylabel('Cost(W)')
 plt.xlabel('W')
 #플롯의 x축 위치와 y축 위치에는 각각 그 데이터가 의미하는 바를 표시하기 위해 라벨(label)를 추가
@@ -76,8 +79,9 @@ for step in range(300):
      #multiply는 단순히 곱해주는 것
     descent = W - tf.multiply(alpha, gradient)
     W.assign(descent)
+    W 업데이트. tf.assign(W, descent). 호출할 때마다 변경된 W의 값이 반영되기 때문에 업데이트된다.
     
     if step % 10 == 0:
         print('{:5} | {:10.4f} | {:10.6f}'.format(
             step, cost.numpy(), W.numpy()[0]))
-
+    #step % 10 == 0 이면 출력
